@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <p v-cloak>++++++++{{msg1}}---------</p>
+        <p v-text="msg1"></p>   
+        <!-- v-html将内容当成HTML处理 -->
+        <div v-html="msg2"></div>    
+        <!-- v-bind 进行属性绑定 -->
+        <!-- <input type="button" value="按钮" v-bind:title="title"> -->
+        <!-- v-bind与：效果相当   里面的内容可以当做js处理-->
+        <input type="button" value="按钮" :title="title +'13'">
+        <!-- 使用id绑定方法 -->
+        <!-- <input type="button" value="按钮" id="btn"> -->
+        <!-- v-on 绑定事件  缩写为@ -->
+        <!-- <input type="button" value="弹出" v-on:mouseover="show" >   -->
+        <input type="button" value="弹出" @mouseover="show" >  
+    </div>
+    
+    <script src = "lib/vue.js"></script>
+    <script>
+    var vm =new Vue({
+        el:"#app",
+        // data中放数据
+        data:{
+            msg:"1233",
+            msg1:"waiufhwpu",
+            msg2:"<h>我是一个大h</h>",
+            title:"我是一个按钮"
+        },
+        methods:{ //methods 这个属性放置方法
+            show:function(){
+                alert('hellow')
+            }
+
+        }
+    })
+
+    // document.getElementById('btn').onclick =function(){
+    //     alert("hellow")
+    // }
+    </script>
+</body>
+</html>
