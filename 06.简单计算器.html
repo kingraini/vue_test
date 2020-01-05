@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="lib/vue.js"></script>
+    <style>
+    input{
+        width:150px;
+    }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input  v-model:value="n1">
+        <select v-model:value="opt">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">x</option>
+            <option value="/">/</option>
+        </select>
+        <input  v-model:value="n2">
+        <input type="button" value="=" @click="equle">
+        <input type="text" v-model:value="n3">
+        <p>{{n1}}</p>
+        <p>{{opt}}</p>
+        <p>{{n2}}</p>
+        <p>{{n3}}</p>
+    </div>
+    <script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            n1:0,
+            n2:0,
+            n3:0,
+            opt:"+",
+        },
+        methods:{
+/*             equle(){
+                switch(this.opt){
+                    case '+':
+                    this.n3 = parseInt(this.n1) + parseInt(this.n2)
+                    break;
+                    case '-':
+                    this.n3 = parseInt(this.n1) - parseInt(this.n2)
+                    break;
+                    case '*':
+                    this.n3 = parseInt(this.n1) * parseInt(this.n2)
+                    break;
+                    case '/':
+                    this.n3 = parseInt(this.n1) / parseInt(this.n2)
+                    break;
+                }
+            } */
+            // parseInt()解析整数  eval()解析字符串
+            equle(){
+                 var codestr = 'parseInt(this.n1)' + this.opt + 'parseInt(this.n3)'
+                 this.n3 = eval(codestr)
+                 console.log(parseInt(this.n1))
+            }
+        }
+    })
+    </script>
+</body>
+</html>

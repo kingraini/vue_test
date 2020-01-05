@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src ="lib/vue.js"></script>
+    <style>
+    .red{
+        color:red;
+    }
+    .italic{
+        font-style:italic;
+    }
+    .thin{
+        font-weight:100;
+    }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-bind绑定属性，用数组带单引号 -->
+        <!-- <h1 class="red thin italic">{{mag}}</h1> -->
+        <!-- <h1 :class="['red','thin','italic']">{{mag}}</h1> -->
+        <!-- 运用对象，判断当前是否运用{red:true} -->
+        <h1 :class="al">{{mag}}</h1>
+    </div>
+    <script>
+        var vm=new Vue({
+            el:app,
+            data:{
+                mag:"这是一个很大的h",
+                flag:true,
+                cl:"['red:true','thin:false','italic:false']",
+                al:{red:true}
+            },
+            methods:{
+
+            }            
+        })
+    </script>
+</body>
+</html>

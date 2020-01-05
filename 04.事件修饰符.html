@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src = "lib/vue.js"></script>
+    <style>
+    .inter{
+        display:flex;
+        padding:20px;
+        background-color:brown;
+    };
+    .wi{
+        width:100px;
+        height:150px;
+        background-color: red;
+    }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 冒泡原则，先内后外 -->
+    <!-- stop 只是本个触发，不触发外层 -->
+    <!-- self 只有自己可以触发 -->
+    <div id="app" class="inter" @click="divHeader">
+        <!-- <input type="button" value="按钮" @click.stop="btnHeader"> -->
+        <!-- <input type="button" value="按钮" @click.once="btnHeader"> -->
+        <!-- 使用capture实现捕获触发 就是先触发这个，接着触发其它 -->
+        <div class="wi" @click.capture="betwen">
+        <input type="button" value="按钮" @click.prevent="btnHeader">
+        <!-- once 只触发一次，可以搭配使用 -->
+        <!-- prevent阻止默认行为 -->
+        <!-- <a href= "https://www.baidu.com/" @click.prevent.once="im">跳转百度</a> -->
+        <!-- <a href= "https://www.baidu.com/" @click="im">跳转百度</a> -->
+        </div>
+    </div>
+    <script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+
+        },
+        methods:{
+            divHeader:function(){
+                console.log("我是divHeader")
+            },
+            btnHeader:function(){
+                console.log("我是btnHeader")
+            },
+            betwen:function(){
+                console.log("我是betwen")
+            },
+            im:function(){
+                console.log("我是im")
+            }
+        }
+    })
+    </script>
+</body>
+</html>

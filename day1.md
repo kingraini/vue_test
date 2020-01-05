@@ -5,17 +5,18 @@
 # v-bind与：效果相当   里面的内容可以当做js处理
 # v-on 绑定事件  缩写为@
 # run:function(){}  与 run(){}是相同的
-# setInterval(() =>{     })//如果是function（）则下面的this指代的是setInterval层   若用() =>则下面this指代的是methods层
+# setInterval(() =>{     })//如果是function（）则下面的this指代的是setInterval层   
+# 若用() =>则下面this指代的是methods层 
 # 注意this
 # vue中是自动监听内部数据的变化的，所以程序员不用多次渲染
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
+# 冒泡原则，先内后外  stop 只是本个触发，不触发外层 self 只有自己可以触发
+# once 只触发一次，可以搭配使用
+# prevent阻止默认行为
+# 使用capture实现捕获触发 就是先触发这个，接着触发其它
+# v-bind 数据只能是M到V     v-model数据是双向的
+# parseInt()解析整数  eval()解析字符串
+# style样式中，每个属性之间不用任何符号相隔，直接下一行就好，若用；则便是此style结束了
+# v-bind绑定属性，用数组带单引号   运用对象，判断当前是否运用{red:true}
 # 
 # 
 # 
