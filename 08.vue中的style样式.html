@@ -11,14 +11,16 @@
     <div id="app">
         <!-- style中属性值是需要‘’的如'red'，属性名若有-也需要‘’如'font-size' -->
         <!-- {}是对象  数组中可有对象，对象中可有判断-->
-        <h1 :style="styleObj1">{{mag}}</h1>
+        <!-- <h1 :style="styleObj1">{{mag}}</h1> -->
+        <h1 :style="[styleObj1,styleObj2]">{{mag}}</h1>
     </div>
     <script>
     var vm = new Vue({
         el:"#app",
         data:{
             mag:"这是一个大h",
-            styleObj1:{ color: 'red', 'font-weight': 200 }
+            styleObj1:{ color: 'red', 'font-weight': 200 },
+            styleObj2:{ 'font-style': 'italic'}
         },
         methods:{
            
